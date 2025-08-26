@@ -72,7 +72,7 @@ const projectsData = [
     featured: false,
     title: "Portfolio",
     description:
-      "The YouTube Translator project focused on bridging speech recognition and natural language processing to enable cross-language video accessibility. It combined automatic speech-to-text conversion with machine translation to produce subtitles in multiple languages. The system was designed with a modular backend for handling model inference and a simple frontend for user interaction, demonstrating how AI models can be integrated into a practical, end-to-end application.",
+      "A personal developer portfolio built to showcase my work, skills, and projects. Designed with React and Three.js for an interactive, modern look, and styled in Figma for clean UI. This site serves as both a resume and a hub to explore my work.",
     image:
       "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756182816/Screenshot_2025-08-25_213307_cconvx.png",
     mockup: false,
