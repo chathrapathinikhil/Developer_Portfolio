@@ -1556,20 +1556,24 @@ footer {
 
 .project-actions {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
+  margin-top: 20px;
 }
 
 .cta-primary {
   background: transparent;
   color: var(--accent);
   border: 2px solid var(--accent);
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 25px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .cta-primary:hover {
@@ -1585,12 +1589,13 @@ footer {
   align-items: center;
   justify-content: center;
 
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   color: var(--muted);
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .cta-secondary:hover {
@@ -1603,6 +1608,31 @@ footer {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+.live-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  margin-right: 6px;
+}
+
+.cta-primary.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cta-primary.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.cta-primary.disabled .live-icon {
+  fill: rgba(255, 255, 255, 0.6);
 }
 
 /* Visual Panel Styles */

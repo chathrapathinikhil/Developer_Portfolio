@@ -14,8 +14,17 @@ const projectsData = [
     image:
       "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756143546/h1b_qevgrq.png",
     mockup: false,
-    tech: ["Express.js", "TypeScript", "MongoDB", "Firebase", "Chart.js"],
-    link: "#",
+    tech: [
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "Firebase",
+      "Chart.js",
+      "Javascript",
+      "HTML",
+      "CSS",
+    ],
+    link: "https://www.youtube.com/watch?v=zneKCooV8Dg",
     repo: "https://github.com/chathrapathinikhil/h1b-web-extension",
   },
   {
@@ -66,10 +75,10 @@ const projectsData = [
       "The YouTube Translator project focused on bridging speech recognition and natural language processing to enable cross-language video accessibility. It combined automatic speech-to-text conversion with machine translation to produce subtitles in multiple languages. The system was designed with a modular backend for handling model inference and a simple frontend for user interaction, demonstrating how AI models can be integrated into a practical, end-to-end application.",
     image:
       "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756182816/Screenshot_2025-08-25_213307_cconvx.png",
-    mockup: true,
-    tech: ["Flutter", "Dart", "Firebase", "Stripe"],
+    mockup: false,
+    tech: ["React", "CSS", "Javascript", "Three.js", "Figma"],
     link: "#",
-    repo: "#",
+    repo: "https://github.com/chathrapathinikhil/Developer_Portfolio",
   },
 ];
 
@@ -177,9 +186,25 @@ export default function Projects() {
                     ))}
                   </div>
                   <div className="project-actions">
-                    <a href={project.link} className="cta-primary">
-                      View Details
-                    </a>
+                    {project.link !== "#" ? (
+                      <a
+                        href={project.link}
+                        className="cta-primary"
+                        aria-label={`View live demo of ${project.title}`}
+                      >
+                        <svg viewBox="0 0 24 24" className="live-icon">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        Live Demo
+                      </a>
+                    ) : (
+                      <span className="cta-primary disabled">
+                        <svg viewBox="0 0 24 24" className="live-icon">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        Coming Soon
+                      </span>
+                    )}
                     {project.repo && (
                       <a
                         href={project.repo}
