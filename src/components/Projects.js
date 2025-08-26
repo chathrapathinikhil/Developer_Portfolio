@@ -77,7 +77,7 @@ const projectsData = [
       "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756182816/Screenshot_2025-08-25_213307_cconvx.png",
     mockup: false,
     tech: ["React", "CSS", "Javascript", "Three.js", "Figma"],
-    link: "#",
+    link: "https://buildwithnikhil.com/",
     repo: "https://github.com/chathrapathinikhil/Developer_Portfolio",
   },
 ];
