@@ -241,9 +241,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-content">
                   <div className="contact-label">Location</div>
-                  <div className="contact-value">
-                    Fullerton, California, United States of America
-                  </div>
+                  <div className="contact-value">Los Angeles, CA, USA</div>
                 </div>
               </div>
             </div>

@@ -5,6 +5,14 @@ export default function Experience() {
   const experienceData = [
     {
       id: 1,
+      dates: "(Apr 2023 - May 2025)",
+      role: "IT Titan Tech CenterStudent Assistant",
+      company: "CSUF Auxiliary Services Corporation",
+      description:
+        "At CSUF, I worked closely with the College of Education to design and maintain their website, making it more engaging and accessible for students, faculty, and staff. In addition to web development, I supported day-to-day technology needs, improved online resources, and helped streamline internal processes. My work contributed to creating a smoother digital experience for the college community while ensuring accurate information was easy to find and use.",
+    },
+    {
+      id: 2,
       dates: "(Apr 2021 - Sep 2022)",
       role: "Full Stack Software Engineer",
       company: "Tata Elxsi Ltd.",
@@ -13,7 +21,7 @@ export default function Experience() {
         "At WhiteHat Jr, I was part of the team building the platform that delivers online coding lessons to students. Most of my work was split between the frontend and backend. On the frontend side, I helped build interactive learning modules and made sure the UI ran smoothly without glitches or delays. On the backend side, I worked on things like payment systems, login flows, and keeping everything secure. I also spent a lot of time fixing performance issues and preventing bugs from slipping into production. Whenever there were repetitive tasks that slowed the team down, I wrote scripts to automate them so we could focus on actual development.",
     },
     {
-      id: 2,
+      id: 3,
       dates: "(Nov 2020 - Apr 2021)",
       role: "Software Engineer",
       company: "Tata Elxsi Ltd.",
