@@ -21,7 +21,7 @@ export default function Hero() {
         </p>
         <div className="hero-actions">
           <a
-            href="https://vyp6vvtab5.ufs.sh/f/xzzOTH34MFXnrtcVOcusBxa4eWnE13cKLTF0HOGqIQd8kYPM"
+            href="https://vyp6vvtab5.ufs.sh/f/xzzOTH34MFXnhnTcbNrtvE7jOrMZzNIUJQmlx8T0nSCwLagq"
             target="_blank"
             rel="noopener noreferrer"
             className="resume-btn"
