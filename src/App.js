@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Experience from "./components/Experience";
@@ -41,6 +42,7 @@ export default function App() {
       </section>
 
       <Footer />
+      <SpeedInsights />
     </main>
   );
 }
