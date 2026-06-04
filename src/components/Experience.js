@@ -5,29 +5,59 @@ export default function Experience() {
   const experienceData = [
     {
       id: 1,
-      dates: "(Apr 2023 - May 2025)",
-      role: "IT Titan Tech CenterStudent Assistant",
-      company: "CSUF Auxiliary Services Corporation",
-      description:
-        "At CSUF, I worked closely with the College of Education to design and maintain their website, making it more engaging and accessible for students, faculty, and staff. In addition to web development, I supported day-to-day technology needs, improved online resources, and helped streamline internal processes. My work contributed to creating a smoother digital experience for the college community while ensuring accurate information was easy to find and use.",
+      dates: "Mar 2026 — Present",
+      role: "Software Developer",
+      type: "Contract",
+      company: "Staples",
+      location: "Boston, MA",
+      bullets: [
+        "Improved inventory synchronization accuracy by 40% between customer-facing platforms and warehouse stock using Spring Boot REST APIs, Kafka, PostgreSQL, and Azure Event Hubs.",
+        "Automated hourly inventory reporting and reconciliation workflows, eliminating 20–30 hours of manual operational work weekly using Spring Boot, PostgreSQL, and Azure Blob Storage.",
+        "Cut QA deployment and environment setup time by 50% through automated CI/CD pipelines using Jenkins, Docker, Kubernetes, and Helm.",
+        "Enhanced inventory reporting responsiveness through normalized PostgreSQL schema design and SQL query optimization.",
+      ],
+      tags: ["Spring Boot", "Kafka", "PostgreSQL", "Azure", "Docker", "Kubernetes"],
     },
     {
       id: 2,
-      dates: "(Apr 2021 - Sep 2022)",
-      role: "Full Stack Software Engineer",
-      company: "Tata Elxsi Ltd.",
-      client: "WhiteHat Jr",
-      description:
-        "At WhiteHat Jr, I was part of the team building the platform that delivers online coding lessons to students. Most of my work was split between the frontend and backend. On the frontend side, I helped build interactive learning modules and made sure the UI ran smoothly without glitches or delays. On the backend side, I worked on things like payment systems, login flows, and keeping everything secure. I also spent a lot of time fixing performance issues and preventing bugs from slipping into production. Whenever there were repetitive tasks that slowed the team down, I wrote scripts to automate them so we could focus on actual development.",
+      dates: "Sep 2025 — Dec 2025",
+      role: "Software Developer",
+      type: "Intern",
+      company: "DentalScan",
+      location: "Venice, FL",
+      bullets: [
+        "Reduced GPT-4 API calls by ~70% through two-layer intent classification combining regex routing with OpenAI fallback, cutting projected inference costs by ~$2,400/month.",
+        "Slashed scheduling response time from 300+ seconds to under 60 seconds by embedding real-time availability checks into Retell AI voice and SMS agents using GPT-4o.",
+        "Built Prisma/PostgreSQL schema models supporting AI agent lifecycle management, reducing CRM reconciliation overhead by ~20 hours/month.",
+      ],
+      tags: ["Next.js", "OpenAI GPT-4o", "Retell AI", "Twilio", "PostgreSQL", "Prisma"],
     },
     {
       id: 3,
-      dates: "(Nov 2020 - Apr 2021)",
-      role: "Software Engineer",
-      company: "Tata Elxsi Ltd.",
-      client: "Jaguar Land Rover",
-      description:
-        "At Jaguar Land Rover, I contributed to the infotainment systems used in their vehicles. My role involved developing features for the in-car display — everything from the way the screens looked to how the system responded when drivers interacted with it. I also worked on the backend logic that kept the UI updated in real time with what the car was doing. Beyond development, I helped set up automated pipelines so new versions could be tested and released with fewer errors. A big part of the job was also making sure the system was stable, testing it thoroughly, and fixing issues before they reached customers.",
+      dates: "Apr 2023 — May 2025",
+      role: "Application Support Engineer",
+      company: "CSUF Auxiliary Services Corporation",
+      location: "Fullerton, CA",
+      bullets: [
+        "Migrated ~150 virtual desktop environments to AWS AppStream, reducing provisioning time by ~70% — from 45–60 min down to 10–15 min per setup.",
+        "Replaced error-prone manual SQL backups with automated Jenkins pipelines across 5 databases, eliminating maintenance risk.",
+        "Redesigned Omni CMS service pages, streamlining navigation and troubleshooting resources across ~1,000 student and staff support requests.",
+      ],
+      tags: ["AWS AppStream", "Jenkins", "SQL", "Omni CMS", "Automation"],
+    },
+    {
+      id: 4,
+      dates: "Nov 2020 — Sep 2022",
+      role: "Full Stack Developer",
+      company: "Tata Elxsi",
+      location: "Bangalore, India",
+      bullets: [
+        "Developed interactive homepage animations increasing average session dwell time by 25–35 seconds using React, Three.js, and Framer Motion.",
+        "Expanded platform to iOS and Android — contributing to 150K+ downloads via React Native.",
+        "Dropped live session sync complaints by 70% by implementing WebSocket resync logic with event versioning and Redux state reconciliation.",
+        "Optimized Node.js/GraphQL APIs with MongoDB for real-time student analytics across millions of records.",
+      ],
+      tags: ["React", "Three.js", "Node.js", "GraphQL", "MongoDB", "React Native"],
     },
   ];
 
@@ -36,12 +66,11 @@ export default function Experience() {
       <div className="container">
         <SectionHeading
           eyebrow="Experience"
-          title="Professional Journey"
-          subtitle="Roles I've worked in over time."
+          title="Where I've Worked"
+          subtitle="A track record of shipping things that move the needle."
         />
 
         <div className="experience-wrapper">
-          {/* Left side: SVG/Lottie illustration container */}
           <div className="experience-illustration">
             <iframe
               src="https://lottie.host/embed/022d5045-fb9a-4be4-9985-81c1581fe810/TvFpqDx0bn.lottie"
@@ -55,7 +84,6 @@ export default function Experience() {
             ></iframe>
           </div>
 
-          {/* Right side: Experience cards */}
           <div className="experience-cards">
             {experienceData.map((exp, index) => (
               <div
@@ -66,19 +94,35 @@ export default function Experience() {
                 <div className="card-icon">
                   <svg viewBox="0 0 24 24" className="avatar-icon">
                     <path
-                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                      d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-10-2h4v2h-4V5z"
                       fill="currentColor"
                     />
                   </svg>
                 </div>
                 <div className="card-content">
-                  <span className="card-dates">{exp.dates}</span>
+                  <div className="card-header-row">
+                    <div className="card-header-left">
+                      <span className="card-dates">{exp.dates}</span>
+                      {exp.type && (
+                        <span className="card-type">{exp.type}</span>
+                      )}
+                    </div>
+                    <span className="card-location">{exp.location}</span>
+                  </div>
                   <h3 className="card-role">{exp.role}</h3>
                   <span className="card-company">{exp.company}</span>
-                  {exp.client && (
-                    <span className="card-client">Client: {exp.client}</span>
-                  )}
-                  <p className="card-description">{exp.description}</p>
+                  <ul className="card-bullets">
+                    {exp.bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                  <div className="card-tags">
+                    {exp.tags.map((tag, i) => (
+                      <span key={i} className="card-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

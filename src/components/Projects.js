@@ -1,64 +1,52 @@
 import React, { useState, useEffect, useRef } from "react";
 import SectionHeading from "./SectionHeading";
 
-// Use image from public assets folder
-const citysailImage = "/assets/citysail.png";
-
 const projectsData = [
   {
     id: 1,
-    featured: false,
-    title: "Sponsorship Web Extension",
+    featured: true,
+    title: "Multimodal Product Catalog",
     description:
-      "Developed a data pipeline and backend system to process and analyze H1B records, providing users with insights into sponsorship trends and enabling informed decision-making through efficient data access and operations.",
+      "Built a multimodal product catalog using CLIP and BLIP models for visual attribute extraction and semantic similarity search via pgvector. Product assets live in AWS S3, metadata in Supabase PostgreSQL. You can search by image or text — the system figures out what you mean either way.",
     image:
-      "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756143546/h1b_qevgrq.png",
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop",
     mockup: false,
-    tech: [
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "Firebase",
-      "Chart.js",
-      "Javascript",
-      "HTML",
-      "CSS",
-    ],
-    link: "https://www.youtube.com/watch?v=zneKCooV8Dg",
-    repo: "https://github.com/chathrapathinikhil/h1b-web-extension",
+    tech: ["CLIP", "BLIP", "pgvector", "FastAPI", "React", "AWS S3", "Supabase"],
+    link: "https://huggingface.co/spaces/Crazy-Naruto/multimodal-product-catalog",
+    repo: "https://huggingface.co/spaces/Crazy-Naruto/multimodal-product-catalog",
   },
   {
     id: 2,
     featured: false,
-    title: "Workodoro: Pomodoro Enhancement",
+    title: "InstaCaptioner",
     description:
-      "Improved a Pomodoro productivity app to enhance focus, task management, and user engagement by introducing cross-device synchronization, motivational features, and seamless functionality. Added tools for efficient task tracking and integrated elements to inspire users during work and break sessions.",
+      "Caption generation service for Instagram posts and stories, powered by Gemini API and prompt-engineered LLM workflows. Feed it an image, get back captions that actually fit the vibe — not generic AI filler.",
     image:
-      "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756143543/workodoro_q0wq7w.png",
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&auto=format&fit=crop",
     mockup: false,
-    tech: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
-    link: "#",
-    repo: "https://github.com/FMZOrganization/final-project-droidsquad",
+    tech: ["Gemini API", "FastAPI", "React", "Prompt Engineering", "Gen AI"],
+    link: "https://huggingface.co/spaces/Crazy-Naruto/InstaCap",
+    repo: "https://huggingface.co/spaces/Crazy-Naruto/InstaCap",
   },
   {
     id: 3,
     featured: false,
-    title: "Hangman game",
+    title: "HireSignal Web Extension",
     description:
-      "Created a classic Hangman game with word guessing logic, tracking of attempts, and a simple interactive interface.",
+      "Chrome extension that overlays company hiring trends and H-1B sponsorship insights directly on LinkedIn job pages. Surfaces real approval history and eligibility indicators in real time — so you know before you apply.",
     image:
-      "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756158185/Screenshot_2025-08-25_144220_aqlbzv.png",
+      "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756143546/h1b_qevgrq.png",
     mockup: false,
-    tech: ["Vue.js", "Flask", "Socket.IO", "CSS", "Vercel"],
-    link: "https://nickmackenzie.github.io/hangman/",
-    repo: "https://github.com/chathrapathinikhil/hangman-game",
+    tech: ["Express.js", "Node.js", "MongoDB", "Firebase", "Chart.js", "JavaScript"],
+    link: "https://www.youtube.com/watch?v=zneKCooV8Dg",
+    repo: "https://github.com/chathrapathinikhil/web-extension",
   },
   {
     id: 4,
     featured: false,
-    title: "CitySail OSM Map Project",
+    title: "CitySail OSM Map",
     description:
-      "Developed a simulation to optimize evacuation routes and enhance emergency response planning, leveraging advanced algorithms and real-time data. Designed an intuitive interface for seamless navigation and mapping, supported by efficient deployment pipelines for reliability and scalability.",
+      "Evacuation route optimizer and emergency response planning tool built on OpenStreetMap. Uses pathfinding algorithms and real-time GeoJSON data with an intuitive Leaflet.js interface for seamless navigation and mapping.",
     image:
       "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756143553/citysail_kuwup4.png",
     mockup: false,
@@ -66,31 +54,27 @@ const projectsData = [
     link: "https://citysail.netlify.app/home",
     repo: "https://github.com/akashbu/CitySail",
   },
-
   {
     id: 5,
     featured: false,
-    title: "Portfolio",
+    title: "Workodoro",
     description:
-      "A personal developer portfolio built to showcase my work, skills, and projects. Designed with React and Three.js for an interactive, modern look, and styled in Figma for clean UI. This site serves as both a resume and a hub to explore my work.",
+      "Enhanced Pomodoro productivity app with cross-device sync, motivational streaks, and seamless task tracking. Added features that keep you in flow — not just counting down a timer.",
     image:
-      "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756182816/Screenshot_2025-08-25_213307_cconvx.png",
+      "https://res.cloudinary.com/dq2jzuzqr/image/upload/v1756143543/workodoro_q0wq7w.png",
     mockup: false,
-    tech: ["React", "CSS", "Javascript", "Three.js", "Figma"],
-    link: "https://buildwithnikhil.com/",
-    repo: "https://github.com/chathrapathinikhil/Developer_Portfolio",
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
+    link: "#",
+    repo: "https://github.com/FMZOrganization/final-project-droidsquad",
   },
 ];
 
 export default function Projects() {
-  const [visibleProjects, setVisibleProjects] = useState(
-    projectsData.slice(0, 2)
-  );
+  const [visibleProjects, setVisibleProjects] = useState(projectsData.slice(0, 2));
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
   const lastProjectRef = useRef(null);
 
-  // Progressive loading with Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -101,7 +85,6 @@ export default function Projects() {
           visibleProjects.length < projectsData.length
         ) {
           setLoading(true);
-          // Simulate loading delay
           setTimeout(() => {
             const nextBatch = projectsData.slice(0, visibleProjects.length + 1);
             setVisibleProjects(nextBatch);
@@ -117,7 +100,6 @@ export default function Projects() {
     }
 
     observerRef.current = observer;
-
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
@@ -125,7 +107,6 @@ export default function Projects() {
     };
   }, [visibleProjects.length, loading]);
 
-  // Reveal animations with Intersection Observer
   useEffect(() => {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -138,9 +119,7 @@ export default function Projects() {
       { threshold: 0.2, rootMargin: "0px 0px -100px 0px" }
     );
 
-    const revealElements = document.querySelectorAll(
-      ".reveal-left, .reveal-right"
-    );
+    const revealElements = document.querySelectorAll(".reveal-left, .reveal-right");
     revealElements.forEach((el) => revealObserver.observe(el));
 
     return () => {
@@ -153,8 +132,8 @@ export default function Projects() {
       <div className="container">
         <SectionHeading
           eyebrow="Projects"
-          title="Things I've worked on, Some of Them"
-          subtitle="Building solutions that make a difference in people's lives"
+          title="Things I've Built"
+          subtitle="From AI-powered catalogs to tools that save people hours every week."
         />
 
         <div className="projects-wrapper">
@@ -163,11 +142,8 @@ export default function Projects() {
               <div
                 key={project.id}
                 className="project-row"
-                ref={
-                  index === visibleProjects.length - 1 ? lastProjectRef : null
-                }
+                ref={index === visibleProjects.length - 1 ? lastProjectRef : null}
               >
-                {/* Left side: Text content */}
                 <div className="project-content reveal-left">
                   {project.featured && (
                     <span className="featured-label">Featured Project</span>
@@ -219,41 +195,16 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Right side: Visual mockup */}
                 <div className="project-visual reveal-right">
                   <div className="visual-panel">
-                    {project.mockup ? (
-                      <div className="device-mockup">
-                        <div className="mockup-screen">
-                          <img
-                            src={project.image}
-                            alt={`${project.title} mockup`}
-                            className="mockup-image"
-                          />
-                          <div className="mockup-overlay">
-                            <div className="mockup-content">
-                              <h4>Stock Market App</h4>
-                              <p>STOCK MARKET CALENDAR AND INVESTMENTS</p>
-                              <div className="mockup-logo">
-                                <div className="hexagon-logo">
-                                  <span>$</span>
-                                </div>
-                                <span className="app-name">X-Dividend</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="image-panel">
-                        <img
-                          src={project.image}
-                          alt={`${project.title} screenshot`}
-                          className="panel-image"
-                        />
-                        <div className="image-overlay"></div>
-                      </div>
-                    )}
+                    <div className="image-panel">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} screenshot`}
+                        className="panel-image"
+                      />
+                      <div className="image-overlay"></div>
+                    </div>
                   </div>
                 </div>
               </div>
