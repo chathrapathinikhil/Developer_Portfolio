@@ -241,7 +241,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-content">
                   <div className="contact-label">Location</div>
-                  <div className="contact-value">Georgia, USA</div>
+                  <div className="contact-value">Georgia, USA · Open to locations across the US</div>
                 </div>
               </div>
             </div>

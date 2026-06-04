@@ -20,7 +20,7 @@ function getResponse(input) {
   }
 
   if (msg.includes("open to") || msg.includes("available") || msg.includes("looking") || msg.includes("hire") || msg.includes("opportunity") || msg.includes("opportunities")) {
-    return "Yes — Nikhil is actively looking for his next role. He's open to full-stack, backend, or AI-focused positions. Best way to reach him is kcnikhil2898@gmail.com or via LinkedIn at linkedin.com/in/chathrapathinikhil/. He's based in Georgia, USA.";
+    return "Yes — Nikhil is actively looking for his next role. He's open to full-stack, backend, or AI-focused positions. Based in Georgia but open to locations across the US. Best way to reach him is kcnikhil2898@gmail.com or via LinkedIn at linkedin.com/in/chathrapathinikhil/.";
   }
 
   if (msg.includes("current") || msg.includes("now") || msg.includes("staples") || msg.includes("latest job")) {
@@ -141,7 +141,7 @@ function getResponse(input) {
   }
 
   if (msg.includes("location") || msg.includes("where") || msg.includes("based") || msg.includes("georgia") || msg.includes("remote")) {
-    return "Nikhil is based in Georgia, USA. He's open to remote roles, hybrid, or relocation depending on the opportunity.";
+    return "Nikhil is based in Georgia, USA and open to locations across the US — remote, hybrid, or on-site. Relocation is on the table for the right opportunity.";
   }
 
   if (msg.includes("thank")) {
