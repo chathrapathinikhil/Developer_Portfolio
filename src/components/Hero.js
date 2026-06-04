@@ -134,7 +134,7 @@ export default function Hero() {
             href="https://vyp6vvtab5.ufs.sh/f/xzzOTH34MFXnH53LuGdnW8yMgzDImuJVl9i2o35OaChLKpF7"
             target="_blank"
             rel="noopener noreferrer"
-            className="resume-btn magnetic-btn"
+            className="resume-btn shimmer-btn"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="resume-icon">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -143,7 +143,7 @@ export default function Hero() {
             </svg>
             View Resume
           </a>
-          <a href="#contact" className="cta-outline-btn magnetic-btn">
+          <a href="#contact" className="cta-outline-btn shimmer-btn">
             Let's Talk
           </a>
         </div>

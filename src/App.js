@@ -39,41 +39,6 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Magnetic buttons
-  useEffect(() => {
-    const applyMagnetic = () => {
-      const btns = document.querySelectorAll(".magnetic-btn");
-
-      btns.forEach((btn) => {
-        const onMove = (e) => {
-          const rect = btn.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          btn.style.transform = `translate(${x * 0.28}px, ${y * 0.28}px)`;
-        };
-        const onLeave = () => {
-          btn.style.transform = "translate(0, 0)";
-        };
-
-        btn.addEventListener("mousemove", onMove);
-        btn.addEventListener("mouseleave", onLeave);
-        btn._magneticCleanup = () => {
-          btn.removeEventListener("mousemove", onMove);
-          btn.removeEventListener("mouseleave", onLeave);
-        };
-      });
-
-      return btns;
-    };
-
-    // Small delay so DOM is ready
-    const timer = setTimeout(() => {
-      const btns = applyMagnetic();
-      return () => btns.forEach((b) => b._magneticCleanup?.());
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <main>

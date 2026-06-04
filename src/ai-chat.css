@@ -9,7 +9,7 @@
   border-radius: 100px;
   font-size: 13px;
   font-weight: 500;
-  color: #2ee6a6;
+  color: #22cc8e;
   margin-bottom: 24px;
   letter-spacing: 0.3px;
 }
@@ -17,7 +17,7 @@
 .badge-dot {
   width: 8px;
   height: 8px;
-  background: #2ee6a6;
+  background: #22cc8e;
   border-radius: 50%;
   animation: pulse-dot 2s ease-in-out infinite;
   flex-shrink: 0;
@@ -30,7 +30,7 @@
 
 /* ─── Typing animation ──────────────────────────────────── */
 .typed-text {
-  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #ffeaa7 100%);
+  background: linear-gradient(135deg, #c05252 0%, #35aaa2 25%, #45b7d1 50%, #96ceb4 75%, #ffeaa7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -38,7 +38,7 @@
 
 .typing-cursor {
   display: inline-block;
-  background: linear-gradient(135deg, #4ecdc4, #2ee6a6);
+  background: linear-gradient(135deg, #35aaa2, #22cc8e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -88,7 +88,7 @@
 .stat-value {
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
-  background: linear-gradient(135deg, #2ee6a6 0%, #4ecdc4 100%);
+  background: linear-gradient(135deg, #22cc8e 0%, #35aaa2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -122,7 +122,7 @@
 
 .cta-outline-btn:hover {
   border-color: rgba(46, 230, 166, 0.5);
-  color: #2ee6a6;
+  color: #22cc8e;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(46, 230, 166, 0.15);
 }
@@ -153,7 +153,7 @@
   background: rgba(46, 230, 166, 0.1);
   border: 1px solid rgba(46, 230, 166, 0.3);
   border-radius: 100px;
-  color: #2ee6a6;
+  color: #22cc8e;
 }
 
 .card-location {
@@ -183,7 +183,7 @@
   content: "▸";
   position: absolute;
   left: 0;
-  color: #2ee6a6;
+  color: #22cc8e;
   font-size: 12px;
   top: 2px;
 }
@@ -215,7 +215,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2ee6a6 0%, #8a66ff 100%);
+  background: linear-gradient(135deg, #22cc8e 0%, #8a66ff 100%);
   border: none;
   cursor: pointer;
   display: flex;
@@ -252,7 +252,7 @@
   right: 6px;
   width: 10px;
   height: 10px;
-  background: #ff6b6b;
+  background: #c05252;
   border-radius: 50%;
   border: 2px solid var(--bg);
 }
@@ -301,7 +301,7 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #2ee6a6 0%, #8a66ff 100%);
+  background: linear-gradient(135deg, #22cc8e 0%, #8a66ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -332,7 +332,7 @@
 .status-dot {
   width: 7px;
   height: 7px;
-  background: #2ee6a6;
+  background: #22cc8e;
   border-radius: 50%;
   animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -384,7 +384,7 @@
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #2ee6a6 0%, #8a66ff 100%);
+  background: linear-gradient(135deg, #22cc8e 0%, #8a66ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -453,7 +453,7 @@
 .ai-suggestion-chip {
   background: rgba(46, 230, 166, 0.07);
   border: 1px solid rgba(46, 230, 166, 0.2);
-  color: #9fe8cc;
+  color: #82d4b8;
   padding: 6px 12px;
   border-radius: 100px;
   font-size: 12px;
@@ -465,7 +465,7 @@
 .ai-suggestion-chip:hover {
   background: rgba(46, 230, 166, 0.15);
   border-color: rgba(46, 230, 166, 0.4);
-  color: #2ee6a6;
+  color: #22cc8e;
 }
 
 .ai-chat-input-area {
@@ -502,7 +502,7 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #2ee6a6 0%, #8a66ff 100%);
+  background: linear-gradient(135deg, #22cc8e 0%, #8a66ff 100%);
   border: none;
   color: white;
   cursor: pointer;
@@ -674,4 +674,54 @@
   .magnetic-btn {
     transition: background 0.3s ease, box-shadow 0.3s ease !important;
   }
+}
+
+/* ─── Shimmer button (replaces magnetic) ───────────────── */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              background 0.3s ease, border-color 0.3s ease,
+              color 0.3s ease !important;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0s;
+}
+
+.shimmer-btn:hover::after {
+  left: 140%;
+  transition: left 0.55s ease;
+}
+
+/* ─── Project panel 3D tilt ─────────────────────────────── */
+.visual-panel {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.visual-panel .image-panel,
+.visual-panel .panel-image {
+  transform: none !important;
+}
+
+/* ─── Reduced motion overrides (append) ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-btn::after { display: none; }
+  .visual-panel { transition: none; }
 }

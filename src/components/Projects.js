@@ -74,21 +74,34 @@ export default function Projects() {
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
   const lastProjectRef = useRef(null);
-  const sectionRef = useRef(null);
-
-  // Parallax on project images
+  // 3D tilt on project visual panels
   useEffect(() => {
-    const onScroll = () => {
-      const images = document.querySelectorAll(".panel-image");
-      images.forEach((img) => {
-        const rect = img.closest(".visual-panel").getBoundingClientRect();
-        const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-        const offset = center * 0.08;
-        img.style.transform = `translateY(${offset}px) scale(1.05)`;
-      });
+    const panels = document.querySelectorAll(".visual-panel");
+    panels.forEach((panel) => {
+      const onMove = (e) => {
+        const rect = panel.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        panel.style.transform = `perspective(900px) rotateY(${x * 16}deg) rotateX(${-y * 10}deg) scale(1.04)`;
+        panel.style.boxShadow = `
+          ${-x * 20}px ${-y * 20}px 40px rgba(34, 204, 142, 0.15),
+          0 20px 60px rgba(0,0,0,0.4)
+        `;
+      };
+      const onLeave = () => {
+        panel.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)";
+        panel.style.boxShadow = "0 20px 40px rgba(0,0,0,0.4)";
+      };
+      panel.addEventListener("mousemove", onMove);
+      panel.addEventListener("mouseleave", onLeave);
+      panel._tiltCleanup = () => {
+        panel.removeEventListener("mousemove", onMove);
+        panel.removeEventListener("mouseleave", onLeave);
+      };
+    });
+    return () => {
+      document.querySelectorAll(".visual-panel").forEach((p) => p._tiltCleanup?.());
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
   }, [visibleProjects]);
 
   useEffect(() => {
