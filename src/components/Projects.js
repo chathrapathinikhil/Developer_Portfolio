@@ -9,7 +9,7 @@ const projectsData = [
     description:
       "Built a multimodal product catalog using CLIP and BLIP models for visual attribute extraction and semantic similarity search via pgvector. Product assets live in AWS S3, metadata in Supabase PostgreSQL. You can search by image or text — the system figures out what you mean either way.",
     image:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&auto=format&fit=crop",
     mockup: false,
     tech: ["CLIP", "BLIP", "pgvector", "FastAPI", "React", "AWS S3", "Supabase"],
     link: "https://huggingface.co/spaces/Crazy-Naruto/multimodal-product-catalog",

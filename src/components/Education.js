@@ -5,20 +5,29 @@ export default function Education() {
   const educationData = [
     {
       id: 1,
-      degree: "Master of Science in Computer Science",
+      degree: "Master of Science, Computer Science",
       institution: "California State University, Fullerton",
-      dates: "Jan 2023 - May 2025",
-      description:
-        "At CSU Fullerton, I pursued my master’s in computer science. My focus was on advanced topics like algorithms, databases, and machine learning, but what stood out most was the hands-on work. I built projects involving web applications, cloud services, and even AI/LLM workflows. Working in teams was a big part of the program, and it gave me the chance to practice taking ideas from design through to deployment.",
+      location: "California, USA",
+      dates: "Jan 2023 — May 2025",
+      highlights: [
+        "Advanced algorithms, databases, and machine learning",
+        "Built full-stack and AI/LLM projects end-to-end",
+        "Cloud infrastructure and deployment workflows",
+        "Team-based software engineering from design to production",
+      ],
     },
     {
       id: 2,
-      degree:
-        "Bachelor of Technology in Electronics and Communication Engineering",
-      institution: "VNR Vignana Jyothi Institute of Engineering and Technology",
-      dates: "Aug 2020 - Sep 2022",
-      description:
-        "For my undergraduate studies, I majored in electronics and communication engineering. While the program was rooted in hardware and communications, I gravitated toward programming and software projects. This is where I built my foundation in coding and problem-solving, picking up C and Java as my first serious programming languages. Being in a technical environment helped me transition smoothly into software engineering as a career.",
+      degree: "Bachelor of Technology, Electronics & Communication Engineering",
+      institution: "VNR VJIET",
+      location: "Hyderabad, India",
+      dates: "Aug 2016 — Sep 2020",
+      highlights: [
+        "Foundation in hardware, communications, and embedded systems",
+        "Gravitated toward software — built first projects in C and Java",
+        "Transition into full-stack development started here",
+        "Active in programming clubs and technical competitions",
+      ],
     },
   ];
 
@@ -28,11 +37,10 @@ export default function Education() {
         <SectionHeading
           eyebrow="Education"
           title="Educational Journey"
-          subtitle="Academic achievements and learning path."
+          subtitle="Where the foundation was built."
         />
 
         <div className="education-wrapper">
-          {/* Left side: Education cards */}
           <div className="education-cards">
             {educationData.map((edu, index) => (
               <div
@@ -49,16 +57,22 @@ export default function Education() {
                   </svg>
                 </div>
                 <div className="card-content">
-                  <span className="card-dates">{edu.dates}</span>
+                  <div className="card-header-row">
+                    <span className="card-dates">{edu.dates}</span>
+                    <span className="card-location">{edu.location}</span>
+                  </div>
                   <h3 className="card-role">{edu.degree}</h3>
                   <span className="card-company">{edu.institution}</span>
-                  <p className="card-description">{edu.description}</p>
+                  <ul className="card-bullets">
+                    {edu.highlights.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Right side: Lottie animation container */}
           <div className="education-illustration">
             <iframe
               src="https://lottie.host/embed/4f0a20fe-5595-4aea-a2b3-ac3d05d4acc7/3uSZBF8q8e.lottie"

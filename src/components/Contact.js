@@ -217,7 +217,7 @@ export default function Contact() {
                 <div className="contact-content">
                   <div className="contact-label">Email</div>
                   <div className="contact-value">
-                    kchathrapathinikhil@gmail.com
+                    kcnikhil2898@gmail.com
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-content">
                   <div className="contact-label">Location</div>
-                  <div className="contact-value">Los Angeles, CA, USA</div>
+                  <div className="contact-value">Georgia, USA</div>
                 </div>
               </div>
             </div>
@@ -356,7 +356,7 @@ export default function Contact() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                   />
                 </svg>
               </button>

@@ -59,6 +59,7 @@ export default function Hero() {
       <div className="grid-bg" aria-hidden="true">
         <div className="gradient"></div>
       </div>
+      <div className="hero-spacer" aria-hidden="true" />
       <div className="hero-content">
         <div className="hero-badge">
           <span className="badge-dot"></span>
@@ -112,6 +113,12 @@ export default function Hero() {
             Let's Talk
           </a>
         </div>
+      </div>
+      <div className="hero-scroll-hint" aria-label="Scroll down">
+        <span className="scroll-hint-text">Scroll</span>
+        <svg className="scroll-hint-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </div>
     </div>
   );

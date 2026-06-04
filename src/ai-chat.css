@@ -158,7 +158,7 @@
 
 .card-location {
   font-size: 13px;
-  color: #555;
+  color: #888;
   font-style: italic;
 }
 
@@ -538,4 +538,44 @@
     right: 16px;
     bottom: 20px;
   }
+}
+
+/* ─── Hero scroll hint ──────────────────────────────────── */
+.hero-spacer {
+  flex: 1;
+}
+
+.hero-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 32px;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+  cursor: default;
+  z-index: 2;
+}
+
+.hero-scroll-hint:hover {
+  opacity: 0.7;
+}
+
+.scroll-hint-text {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scroll-hint-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--muted);
+  animation: bounce-arrow 2s ease-in-out infinite;
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
 }
