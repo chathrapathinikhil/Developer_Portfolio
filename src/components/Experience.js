@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SectionHeading from "./SectionHeading";
 
 export default function Experience() {
+  const cardsRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.1 }
+    );
+    if (cardsRef.current) observer.observe(cardsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const experienceData = [
     {
       id: 1,
@@ -84,11 +96,11 @@ export default function Experience() {
             ></iframe>
           </div>
 
-          <div className="experience-cards">
+          <div className="experience-cards" ref={cardsRef}>
             {experienceData.map((exp, index) => (
               <div
                 key={exp.id}
-                className="experience-card"
+                className={`experience-card ${inView ? "card-visible" : ""}`}
                 style={{ "--card-index": index }}
               >
                 <div className="card-icon">

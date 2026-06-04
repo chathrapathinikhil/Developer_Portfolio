@@ -579,3 +579,99 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
 }
+
+/* ─── Cursor glow ───────────────────────────────────────── */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 230, 166, 0.055) 0%,
+    rgba(138, 102, 255, 0.03) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+/* ─── Global scroll-reveal ──────────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger section eyebrow slightly before title */
+.section-eyebrow.scroll-reveal { transition-delay: 0s; }
+.section-title.scroll-reveal   { transition-delay: 0.1s; }
+.section-sub.scroll-reveal     { transition-delay: 0.18s; }
+
+/* contact items stagger */
+.contact-item.scroll-reveal:nth-child(1) { transition-delay: 0.05s; }
+.contact-item.scroll-reveal:nth-child(2) { transition-delay: 0.15s; }
+.contact-social.scroll-reveal            { transition-delay: 0.25s; }
+.contact-form.scroll-reveal              { transition-delay: 0.08s; }
+
+/* education cards */
+.education-card.scroll-reveal:nth-child(1) { transition-delay: 0.1s; }
+.education-card.scroll-reveal:nth-child(2) { transition-delay: 0.22s; }
+
+/* ─── Experience / Skill card scroll-triggered stagger ─── */
+.experience-card,
+.skill-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  transition-delay: calc(var(--card-index, 0) * 0.12s);
+}
+
+.experience-card.card-visible,
+.skill-card.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Magnetic button transition ───────────────────────── */
+.magnetic-btn {
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease !important;
+  will-change: transform;
+}
+
+/* ─── Project image parallax ────────────────────────────── */
+.panel-image {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* ─── Reduced motion overrides ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow { display: none; }
+  .scroll-reveal,
+  .experience-card,
+  .skill-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .magnetic-btn {
+    transition: background 0.3s ease, box-shadow 0.3s ease !important;
+  }
+}

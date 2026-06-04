@@ -74,6 +74,22 @@ export default function Projects() {
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
   const lastProjectRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  // Parallax on project images
+  useEffect(() => {
+    const onScroll = () => {
+      const images = document.querySelectorAll(".panel-image");
+      images.forEach((img) => {
+        const rect = img.closest(".visual-panel").getBoundingClientRect();
+        const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+        const offset = center * 0.08;
+        img.style.transform = `translateY(${offset}px) scale(1.05)`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [visibleProjects]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

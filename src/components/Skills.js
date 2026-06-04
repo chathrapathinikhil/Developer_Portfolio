@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SectionHeading from "./SectionHeading";
 import SphericalWordCloud from "./SphericalWordCloud";
 
 export default function Skills() {
+  const gridRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.05 }
+    );
+    if (gridRef.current) observer.observe(gridRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const skillCategories = [
     {
       title: "Frontend Development",
@@ -160,13 +172,12 @@ export default function Skills() {
         <SphericalWordCloud words={sphericalWords} />
       </div>
 
-      <div className="skills-grid">
+      <div className="skills-grid" ref={gridRef}>
         {skillCategories.map((category, index) => (
           <div
             key={index}
-            className={`skill-card skill-card--${category.accent}`}
+            className={`skill-card skill-card--${category.accent} ${inView ? "card-visible" : ""}`}
             style={{
-              "--delay": `${index * 0.1}s`,
               "--card-index": index,
             }}
           >
