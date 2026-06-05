@@ -15,6 +15,15 @@ import "./styles.css";
 import "./ai-chat.css";
 
 export default function App() {
+  // Vercel Speed Insights — injected at runtime so Parcel doesn't try to bundle it
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.src = "/_vercel/insights/script.js";
+    s.defer = true;
+    document.head.appendChild(s);
+    return () => { try { document.head.removeChild(s); } catch {} };
+  }, []);
+
   // Global scroll-reveal for section headings + general elements
   useEffect(() => {
     const observer = new IntersectionObserver(
