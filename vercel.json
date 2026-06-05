@@ -1,5 +1,13 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.buildwithnikhil.com" }],
+      "destination": "https://buildwithnikhil.com/:path*",
+      "permanent": true
+    }
+  ]
 }
